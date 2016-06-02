@@ -19,20 +19,29 @@ public partial class _Default : System.Web.UI.Page
         Label2.Text = "Money per hour: " + String.Format("{0:C}",income);
         if (!empty(TextBox2.Text) || !empty(TextBox3.Text))
         {
+            int radioVal1 = Convert.ToInt32(RadioButtonList1.SelectedValue);
+            int radioVal2 = Convert.ToInt32(RadioButtonList2.SelectedValue);
             if (empty(TextBox3.Text))
             {
+                double boxTwo = Convert.ToDouble(TextBox2.Text);
                 Label3.Text = "In one hour, you will have " +
                     String.Format("{0:C}", income + 
-                    (Convert.ToDouble(TextBox2.Text) * Convert.ToInt32(RadioButtonList1.SelectedValue)));
+                    (boxTwo * radioVal1));
             }
             else if (empty(TextBox2.Text)) // no current value
             {
-                Label3.Text = "It will take " +
-                    6
-                    + "hours to reach your goal. Good luck!";
+                double boxThree = Convert.ToDouble(TextBox3.Text);
+                Label3.Text = "It will take about " +
+                    hours(boxThree, radioVal2, income)
+                    + " hours to get much money";
             }
             else // both target and current value
             {
+                double boxThree = Convert.ToDouble(TextBox3.Text);
+                double boxTwo = Convert.ToDouble(TextBox2.Text);
+                Label3.Text = "It will take about " +
+                    goals(boxTwo, boxThree, radioVal1, radioVal2, income)
+                    + " hours to reach your goal. Good luck!";
 
             }
         }
@@ -45,22 +54,30 @@ public partial class _Default : System.Web.UI.Page
         Label5.Text = "Research per hour: " + String.Format("{0:N0}", income);
         if (!empty(TextBox5.Text) || !empty(TextBox6.Text))
         {            
+            int radioVal3 = Convert.ToInt32(RadioButtonList3.SelectedValue);
+            int radioVal4 = Convert.ToInt32(RadioButtonList4.SelectedValue);
             if (empty(TextBox6.Text)) // no target value
             {
+                double boxFive = Convert.ToDouble(TextBox5.Text);
                 Label6.Text = "In one hour, you will have " +
                     String.Format("{0:N0}", income +
-                    (Convert.ToDouble(TextBox5.Text) * Convert.ToInt32(RadioButtonList3.SelectedValue))) +
+                    (boxFive * radioVal3)) +
                     " research";
             }
             else if (empty(TextBox5.Text)) // no current value
             {
-                Label6.Text = "It will take " +
-                    6
-                    + "hours to reach your goal. Good luck!";
+                double boxSix = Convert.ToDouble(TextBox6.Text);
+                Label6.Text = "It will take about " +
+                    hours(boxSix, radioVal4, income)
+                    + " hours to reach get that much research";
             }
             else // both target and current value
             {
-
+                double boxFive = Convert.ToDouble(TextBox5.Text);
+                double boxSix = Convert.ToDouble(TextBox6.Text);
+                Label6.Text = "It will take about " +
+                    goals(boxFive, boxSix, radioVal3, radioVal4, income)
+                    + " hours to reach your goal. Good luck!";
             }
         }
             
@@ -83,5 +100,13 @@ public partial class _Default : System.Web.UI.Page
     protected bool empty(String box)
     {
         return box == String.Empty;
+    }
+    protected String hours(double box, int radio, double inc)
+    {
+        return String.Format("{0:N2}", (box * radio) / inc);
+    }
+    protected String goals(double box1, double box2, int radio1, int radio2, double inc)
+    {
+        return String.Format("{0:N2}", ((box2 * radio2) - (box1 * radio1)) / inc);
     }
 }

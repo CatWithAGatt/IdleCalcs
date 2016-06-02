@@ -63,18 +63,22 @@
             <p>Current Money (optional)</p>
             <asp:CompareValidator ID="CompareValidator5" runat="server" ControlToValidate="TextBox2" ErrorMessage="Please enter a numerical value" Type="Double" Operator="DataTypeCheck"></asp:CompareValidator>
             <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox><br />            
-            <asp:RadioButtonList ID="RadioButtonList1" CssClass="radioButtonList" RepeatDirection="Horizontal" runat="server">
+            <asp:RadioButtonList ID="RadioButtonList1" RepeatDirection="Horizontal" runat="server" RepeatColumns="3" CssClass="radioButtonList">
                 <asp:ListItem Selected="True" Value="1000">Thousand</asp:ListItem>
                 <asp:ListItem Value="1000000">Million</asp:ListItem>
                 <asp:ListItem Value="1000000000">Billion</asp:ListItem>
-            </asp:RadioButtonList><br />
+                <asp:ListItem Value="1000000000000">Trillion</asp:ListItem>
+                <asp:ListItem Value="1000000000000000">Quadrillion</asp:ListItem>
+            </asp:RadioButtonList><br /><br />
             <p>Target Money (optional)</p>
             <asp:CompareValidator ID="CompareValidator6" runat="server" ControlToValidate="TextBox3" ErrorMessage="Please enter a numerical value" Type="Double" Operator="DataTypeCheck"></asp:CompareValidator>
             <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox><br />
-            <asp:RadioButtonList ID="RadioButtonList2" CssClass="radioButtonList" RepeatDirection="Horizontal" runat="server">
+            <asp:RadioButtonList ID="RadioButtonList2" RepeatDirection="Horizontal" runat="server" RepeatColumns="3" CssClass="radioButtonList">
                 <asp:ListItem Selected="True" Value="1000">Thousand</asp:ListItem>
                 <asp:ListItem Value="1000000">Million</asp:ListItem>
                 <asp:ListItem Value="1000000000">Billion</asp:ListItem>
+                <asp:ListItem Value="1000000000000">Trillion</asp:ListItem>
+                <asp:ListItem Value="1000000000000000">Quadrillion</asp:ListItem>
             </asp:RadioButtonList><br /><br />
             <br /><br />
             <asp:Button ID="Button1" runat="server" Text="Calculate Money" OnClick="Button1_Click" /><br /><br />
@@ -90,18 +94,22 @@
             <p>Current Research (optional)</p>
             <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
             <asp:CompareValidator ID="CompareValidator3" runat="server" ControlToValidate="TextBox5" ErrorMessage="Please enter a numerical value" Type="Double" Operator="DataTypeCheck"></asp:CompareValidator>
-            <asp:RadioButtonList ID="RadioButtonList3" RepeatDirection="Horizontal" runat="server">
+            <asp:RadioButtonList ID="RadioButtonList3" RepeatDirection="Horizontal" runat="server" RepeatColumns="3">
                 <asp:ListItem Selected="True" Value="1000">Thousand</asp:ListItem>
                 <asp:ListItem Value="1000000">Million</asp:ListItem>
                 <asp:ListItem Value="1000000000">Billion</asp:ListItem>
+                <asp:ListItem Value="1000000000000">Trillion</asp:ListItem>
+                <asp:ListItem Value="1000000000000000">Quadrillion</asp:ListItem>
             </asp:RadioButtonList>
             <p>Target Research (optional)</p>
             <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
             <asp:CompareValidator ID="CompareValidator4" runat="server" ControlToValidate="TextBox6" ErrorMessage="Please enter a numerical value" Type="Double" Operator="DataTypeCheck"></asp:CompareValidator>
-            <asp:RadioButtonList ID="RadioButtonList4" RepeatDirection="Horizontal" runat="server">
+            <asp:RadioButtonList ID="RadioButtonList4" RepeatDirection="Horizontal" runat="server" RepeatColumns="3">
                 <asp:ListItem Selected="True" Value="1000">Thousand</asp:ListItem>
                 <asp:ListItem Value="1000000">Million</asp:ListItem>
                 <asp:ListItem Value="1000000000">Billion</asp:ListItem>
+                <asp:ListItem Value="1000000000000">Trillion</asp:ListItem>
+                <asp:ListItem Value="1000000000000000">Quadrillion</asp:ListItem>
             </asp:RadioButtonList>
             <br /><br />            
             <asp:Button ID="Button2" runat="server" Text="Calculate Research" OnClick="Button2_Click" /><br /><br />
